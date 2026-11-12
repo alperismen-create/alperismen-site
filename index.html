@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Alper İşmen</title>
+<meta name="description" content="Alper İşmen. Photographer and filmmaker based in Ankara. Documentary, promotional film, commercials and professional photography.">
+<meta name="theme-color" content="#0b0b0b">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="bg" aria-hidden="true">
+  <video id="bgVideo" src="media/showreel-bg.mp4" muted loop playsinline preload="auto" tabindex="-1"></video>
+  <div class="bg-photo"></div><div class="bg-photo"></div>
+</div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="top">
+  <a class="brand" href="#/">
+    <span>Alper İşmen</span>
+    <span class="serif" data-i18n="sub"></span>
+  </a>
+  <nav class="nav" data-i18n-aria="menu">
+    <a href="#/fotograf" data-nav="fotograf" data-i18n="photo"></a>
+    <a href="#/hakkinda" data-nav="hakkinda" data-i18n="about"></a>
+    <a href="#/iletisim" data-nav="iletisim" data-i18n="contact"></a>
+  </nav>
+  <div class="lang" id="lang" role="group" data-i18n-aria="language">
+    <button type="button" data-lang="tr" lang="tr" aria-label="Türkçe">TR</button>
+    <button type="button" data-lang="en" lang="en" aria-label="English">EN</button>
+    <button type="button" data-lang="es" lang="es" aria-label="Español">ES</button>
+  </div>
+</header>
+
+<main class="home" id="home">
+  <div class="stage">
+    <div class="rail" aria-hidden="true"><i id="railFill"></i></div>
+    <div class="frame" id="frame" role="button" tabindex="0" data-i18n-aria="watch">
+      <video id="video" src="media/showreel.mp4" poster="media/showreel-poster.jpg" autoplay muted loop playsinline preload="auto"></video>
+    </div>
+    <div class="info">
+      <h1 class="title">Showreel</h1>
+      <p class="meta"><span id="tAll">02′ 52″</span></p>
+    </div>
+    <p class="roles" data-i18n="roles"></p>
+  </div>
+</main>
+
+<div class="controls" id="controls">
+  <div class="controls-row">
+    <button type="button" id="btnSound"></button>
+    <button type="button" id="btnPlay"></button>
+    <span class="time dim"><span id="tNow">0:00</span> / <span id="tDur">0:00</span></span>
+    <button type="button" id="btnClose" data-i18n="close"></button>
+  </div>
+  <div class="progress" id="progress" role="slider" data-i18n-aria="position" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" tabindex="0"><i id="progressFill"></i></div>
+</div>
+
+<section class="gallery" id="gallery" hidden data-i18n-aria="photo">
+  <nav class="g-tabs" data-i18n-aria="sections">
+    <a href="#/fotograf/editorial" data-sec="editorial" data-i18n="editorial"></a>
+    <a href="#/fotograf/documentary" data-sec="documentary" data-i18n="documentary"></a>
+  </nav>
+  <div class="g-stage" id="gStage">
+    <img class="g-img" alt="" decoding="async">
+    <img class="g-img" alt="" decoding="async">
+  </div>
+  <div class="g-foot">
+    <p class="g-cap"><span id="gTitle"></span><span class="dim" id="gPlace"></span></p>
+    <p class="g-count"><span id="gNow">01</span><span class="dim"> / <span id="gAll">01</span></span></p>
+    <div class="g-ticks" id="gTicks" role="slider" data-i18n-aria="photo" aria-valuemin="1" tabindex="0"></div>
+  </div>
+  <img class="g-peek" id="gPeek" alt="" aria-hidden="true">
+</section>
+
+<section class="page" id="about" hidden data-i18n-aria="about">
+  <div class="page-inner">
+    <div class="page-side">
+      <img class="portrait" src="media/alper-ismen.jpg" alt="Alper İşmen" width="800" height="532">
+    </div>
+    <div class="cols" data-i18n="bio"></div>
+  </div>
+</section>
+
+<section class="page" id="contact" hidden data-i18n-aria="contact">
+  <div class="page-inner">
+    <div>
+      <p class="big"><a href="mailto:alperismen@gmail.com">alperismen@gmail.com</a></p>
+      <p class="dim addr" data-i18n="addr"></p>
+    </div>
+  </div>
+</section>
+
+<script src="data.js"></script>
+<script src="i18n.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

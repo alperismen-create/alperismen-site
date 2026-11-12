@@ -1,0 +1,6 @@
+# yalnızca site dosyaları yayınlanır
+tools/
+OZET.md
+buyutme-karsilastirma.jpg
+*.tmp.mp4
+*.new.mp4

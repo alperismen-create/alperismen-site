@@ -1,0 +1,211 @@
+:root {
+  --ink: #f2efe9;
+  --dim: rgba(242, 239, 233, .55);
+  --line: rgba(242, 239, 233, .3);
+  --base: #0b0b0b;
+  --pad: 1.5vw;
+  --hf: clamp(14px, 1.15vw, 20px); /* üst bant yazı boyutu */
+  --ratio: calc(796 / 1920);
+  /* örnek sayfadaki sütunlar */
+  --x-frame: 4.9vw;
+  --fw: 54vw;
+  --x-info: 61.6vw;
+  --x-roles: 76.4vw;
+  --x-last: 84.6vw;
+  --sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --ease: cubic-bezier(.2, .7, .1, 1);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+body {
+  background: var(--base); color: var(--ink);
+  font: 400 clamp(11px, .86vw, 15px)/1.12 var(--sans); letter-spacing: 0;
+  overflow: hidden; -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+button { all: unset; cursor: pointer; }
+.dim { color: var(--dim); }
+.serif { color: var(--dim); }
+[hidden] { display: none !important; }
+:focus-visible { outline: 1px solid var(--ink); outline-offset: 4px; }
+
+/* arka plan: aynı video, büyütülmüş ve yumuşatılmış */
+.bg, .grain { position: fixed; inset: 0; }
+.bg { z-index: 0; overflow: hidden; background: var(--base); }
+/* örnekteki gibi: video çok yakınlaştırılmış ve odak dışı, karartma az */
+.bg video {
+  position: absolute; left: -9%; top: -9%; width: 118%; height: 118%; object-fit: cover;
+  filter: blur(14px) brightness(.8) saturate(1.04);
+  transition: filter .8s var(--ease);
+}
+.bg::after { content: ""; position: absolute; inset: 0; background: rgba(12, 12, 12, .1); }
+/* ince film greni: yalnızca arka planın üstünde, çerçevedeki videoya ve fotoğraflara değmez (deseni app.js üretir) */
+.grain { z-index: 1; pointer-events: none; background-repeat: repeat; background-size: 256px 256px; }
+body.play .bg video { filter: blur(22px) brightness(.4) saturate(1); }
+body.sub .bg video { filter: blur(22px) brightness(.3) saturate(.95); }
+/* fotoğraf sayfasında arka plan: açık olan karenin yakınlaştırılmış, odak dışı hali */
+.bg-photo {
+  position: absolute; left: -9%; top: -9%; width: 118%; height: 118%;
+  background-size: cover; background-position: center;
+  filter: blur(14px) brightness(.5) saturate(1.04);
+  opacity: 0; transition: opacity 1s var(--ease);
+}
+body.photo .bg video { opacity: 0; }
+body.photo .bg-photo.on { opacity: 1; }
+
+/* üst bant */
+.top { position: fixed; z-index: 30; top: 0; left: 0; right: 0; height: 0; font-size: var(--hf); }
+.brand { position: absolute; left: var(--pad); top: 2.6vh; display: flex; flex-direction: column; white-space: nowrap; }
+.nav a { position: absolute; top: calc(2.6vh + 1.1em); color: var(--dim); transition: color .3s; white-space: nowrap; }
+.nav a:nth-child(1) { left: var(--x-info); }
+.nav a:nth-child(2) { left: 73.5vw; }
+.nav a:nth-child(3) { left: 82.6vw; }
+.nav a:hover, .nav a.on { color: var(--ink); }
+.lang { position: absolute; right: var(--pad); top: calc(2.6vh + 1.1em); display: flex; gap: .9em; }
+.lang button { color: var(--dim); padding: 0 0 2px; transition: color .3s; }
+.lang button:hover, .lang button.on { color: var(--ink); }
+.lang button.on { border-bottom: 1px solid var(--ink); }
+
+/* ana sayfa */
+.home { position: fixed; z-index: 10; inset: 0; transition: opacity .5s var(--ease); }
+.stage {
+  position: absolute; left: 0; right: 0; top: 50%; transform: translateY(-50%);
+  height: calc(var(--fw) * var(--ratio)); transition: height .9s var(--ease);
+}
+.rail { position: absolute; left: 3.3vw; top: 0; bottom: 0; width: 1px; background: var(--line); transition: opacity .4s; }
+.rail i { display: block; width: 1px; height: 0; background: var(--ink); }
+.frame {
+  position: absolute; left: var(--x-frame); top: 0; width: var(--fw); height: 100%;
+  cursor: pointer; overflow: hidden;
+  transition: left .9s var(--ease), width .9s var(--ease);
+}
+/* hafif büyütme: bazı planların kenarında kalan ince siyah şeridi çerçevenin dışına iter */
+.frame video { display: block; width: 100%; height: 100%; object-fit: cover; transform: scale(1.02); }
+.frame video:fullscreen { object-fit: contain; transform: none; background: #000; }
+.frame video:-webkit-full-screen { object-fit: contain; transform: none; background: #000; }
+.frame-hint { display: none; position: absolute; left: 0; top: calc(100% + 10px); color: var(--dim); opacity: 0; transition: opacity .3s; }
+.frame:hover .frame-hint, .frame:focus-visible .frame-hint { opacity: 1; }
+.info {
+  position: absolute; left: var(--x-info); top: 0; bottom: 0; width: 24vw;
+  display: flex; flex-direction: column; justify-content: space-between;
+  transition: opacity .45s var(--ease);
+}
+.title { font: 300 clamp(34px, 3.9vw, 84px)/.95 var(--sans); letter-spacing: -.045em; margin-left: -.05em; }
+.roles { position: absolute; left: var(--x-roles); bottom: 0; transition: opacity .45s var(--ease); }
+.bio { position: fixed; z-index: 12; left: var(--pad); bottom: 2.6vh; transition: opacity .4s; }
+
+/* oynatıcı: çerçeve büyür */
+body.play { --fw: min(90vw, calc((100vh - 190px) / var(--ratio))); --x-frame: calc((100vw - var(--fw)) / 2); }
+body.play .info, body.play .roles, body.play .rail, body.play .bio, body.play .frame-hint { opacity: 0; pointer-events: none; }
+.controls {
+  position: fixed; z-index: 20; left: 5vw; right: 5vw; bottom: 2.6vh;
+  opacity: 0; pointer-events: none; transition: opacity .4s;
+}
+body.play .controls { opacity: 1; pointer-events: auto; }
+.controls-row { display: flex; gap: 26px; align-items: baseline; }
+.controls-row button { padding: 6px 0; border-bottom: 1px solid var(--line); transition: border-color .3s; }
+.controls-row button:hover { border-color: var(--ink); }
+.controls-row .time { margin-left: auto; font-variant-numeric: tabular-nums; }
+.progress { height: 16px; margin-top: 8px; position: relative; cursor: pointer; }
+.progress::before, .progress i { content: ""; position: absolute; left: 0; top: 7px; height: 1px; }
+.progress::before { right: 0; background: var(--line); }
+.progress i { background: var(--ink); width: 0; }
+
+body.sub .home { opacity: 0; pointer-events: none; }
+body.sub .bio { opacity: 0; }
+
+/* fotoğraf: her kare ekrana sığar, tek tek açılır; altta zaman çizgisi */
+.gallery { position: fixed; z-index: 10; inset: 0; animation: rise .6s var(--ease) both; }
+@keyframes rise { from { opacity: 0; transform: translateY(12px); } }
+.g-stage { position: absolute; left: 4.9vw; right: 4.9vw; top: max(13vh, calc(2.6vh + var(--hf) * 5.8)); bottom: 15vh; cursor: e-resize; }
+.g-stage.left { cursor: w-resize; }
+/* iki alan: açık olan fotoğrafın sol üst köşesinin hemen üstünde (konumu app.js hesaplar) */
+.g-tabs {
+  position: absolute; z-index: 5; left: 4.9vw; top: 8vh; display: flex; gap: 1.8em; font-size: var(--hf);
+  transition: left .7s var(--ease), top .7s var(--ease);
+}
+.g-tabs a { color: var(--dim); transition: color .3s; }
+.g-tabs a:hover, .g-tabs a.on { color: var(--ink); }
+.g-img {
+  position: absolute; inset: 0; margin: auto; display: block;
+  max-width: 100%; max-height: 100%; width: auto; height: auto;
+  opacity: 0; transform: scale(1.012);
+  transition: opacity .7s var(--ease), transform 1.1s var(--ease);
+  box-shadow: 0 30px 90px rgba(0, 0, 0, .35);
+}
+.g-img.on { opacity: 1; transform: none; }
+.g-foot {
+  position: absolute; left: 4.9vw; right: 4.9vw; bottom: 2.6vh;
+  display: grid; grid-template-columns: 1fr auto; row-gap: 8px; align-items: end;
+}
+.g-cap span + span { margin-left: 1.4em; }
+.g-count { font-variant-numeric: tabular-nums; }
+.g-ticks { grid-column: 1 / -1; display: flex; align-items: flex-end; height: 26px; cursor: pointer; }
+.g-ticks i { flex: 1; height: 100%; position: relative; }
+.g-ticks i::after {
+  content: ""; position: absolute; left: 50%; bottom: 0; width: 1px; height: 7px;
+  background: var(--line); transition: height .35s var(--ease), background .35s;
+}
+.g-ticks i.gap::after { height: 12px; }
+.g-ticks i:hover::after { height: 16px; background: var(--ink); }
+.g-ticks i.on::after { height: 24px; background: var(--ink); }
+.g-peek {
+  position: absolute; bottom: calc(2.6vh + 38px); width: 150px; height: auto; transform: translateX(-50%);
+  opacity: 0; pointer-events: none; transition: opacity .25s; box-shadow: 0 10px 30px rgba(0, 0, 0, .5);
+}
+.g-peek.on { opacity: 1; }
+
+/* metin sayfaları */
+.page { position: fixed; z-index: 10; inset: 0; overflow-y: auto; display: flex; align-items: center; animation: rise .6s var(--ease) both; }
+.page-inner { position: relative; width: 100%; min-height: 40vh; padding: 16vh 0 12vh var(--x-info); }
+.page-side { position: absolute; left: var(--x-frame); top: 16vh; width: var(--fw); }
+.label { margin-bottom: 14px; }
+.portrait { display: block; width: 100%; height: auto; }
+/* Hakkında: fotoğraf ana sayfadaki video çerçevesiyle aynı yerde ve aynı genişlikte, metin sağda tek sütun */
+#about .page-inner { min-height: calc(var(--fw) * .665 + 30vh); display: flex; align-items: center; }
+#about .page-side { top: 50%; transform: translateY(-50%); }
+#about .label { position: absolute; bottom: calc(100% + 2px); margin: 0; }
+.cols { padding-right: var(--pad); max-width: 34vw; }
+.cols p { font-size: var(--hf); line-height: 1.5; margin-bottom: 1.1em; }
+.cols p:last-child { margin-bottom: 0; }
+.big { font: 300 clamp(26px, 3.6vw, 76px)/1.05 var(--sans); letter-spacing: -.04em; }
+.big a { border-bottom: 1px solid transparent; transition: border-color .3s; }
+.big a:hover { border-color: var(--ink); }
+.addr { margin-top: 26px; }
+
+/* tablet ve telefon */
+@media (max-width: 900px), (orientation: portrait) {
+  :root { --pad: 16px; --x-frame: 16px; --fw: calc(100vw - 32px); --hf: 13.5px; }
+  body { font-size: 12px; line-height: 1.3; }
+  .top { height: auto; display: flex; justify-content: space-between; align-items: flex-start; padding: 16px; }
+  .brand, .nav a { position: static; }
+  .nav { display: flex; gap: 12px; margin-left: auto; margin-right: 0; }
+  .lang { top: 38px; right: 16px; }
+  .stage { position: absolute; top: 50%; height: auto; padding: 0 16px; display: flex; flex-direction: column; gap: 18px; }
+  .rail { display: none; }
+  .frame { position: relative; left: 0; width: 100%; height: auto; aspect-ratio: 1920 / 796; }
+  .frame-hint { display: none; }
+  .info { position: static; width: auto; gap: 12px; }
+  .title { font-size: clamp(44px, 14vw, 84px); }
+  .roles { position: static; color: var(--dim); }
+  .bio { left: 16px; bottom: 16px; }
+  body.play { --fw: calc(100vw - 32px); --x-frame: 16px; }
+  .controls { left: 16px; right: 16px; bottom: 16px; }
+  .controls-row { gap: 18px; }
+
+  .g-stage { left: 16px; right: 16px; top: 112px; bottom: 96px; }
+  .g-foot { left: 16px; right: 16px; bottom: 16px; }
+  .g-peek { display: none; }
+
+  .page { align-items: flex-start; }
+  .page-inner { padding: 84px 16px 60px; }
+  .page-side { position: static; width: auto; margin-bottom: 22px; }
+  #about .page-inner { display: block; min-height: 0; }
+  #about .page-side { transform: none; }
+  #about .label { position: static; margin-bottom: 12px; }
+  .cols { padding-right: 0; max-width: none; }
+  .cols p { font-size: 14px; line-height: 1.55; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+}
