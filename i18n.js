@@ -1,7 +1,7 @@
 /* Sitedeki tüm metinler. Yeni dil eklemek için aynı anahtarlarla bir blok daha yazmak yeterli. */
 window.I18N = {
   tr: {
-    sub: 'Fotoğraf ve Film', photo: 'Fotoğraf', about: 'Hakkında', contact: 'İletişim',
+    sub: 'Fotoğraf ve Film', video: 'Video', photo: 'Fotoğraf', about: 'Hakkında', contact: 'İletişim',
     menu: 'Ana menü', language: 'Dil', sections: 'Fotoğraf alanları',
     roles: 'Belgesel<br>Tanıtım filmi<br>Reklam',
     watch: 'Showreel\'i sesli izle', position: 'Showreel konumu',
@@ -14,7 +14,7 @@ window.I18N = {
     places: {},
   },
   en: {
-    sub: 'Photography and Film', photo: 'Photography', about: 'About', contact: 'Contact',
+    sub: 'Photography and Film', video: 'Videography', photo: 'Photography', about: 'About', contact: 'Contact',
     menu: 'Main menu', language: 'Language', sections: 'Photography sections',
     roles: 'Documentary<br>Promotional film<br>Commercial',
     watch: 'Watch the showreel with sound', position: 'Showreel position',
@@ -27,7 +27,7 @@ window.I18N = {
     places: { 'İstanbul': 'Istanbul', Hindistan: 'India' },
   },
   es: {
-    sub: 'Fotografía y Cine', photo: 'Fotografía', about: 'Sobre mí', contact: 'Contacto',
+    sub: 'Fotografía y Cine', video: 'Videografía', photo: 'Fotografía', about: 'Sobre mí', contact: 'Contacto',
     menu: 'Menú principal', language: 'Idioma', sections: 'Secciones de fotografía',
     roles: 'Documental<br>Película promocional<br>Publicidad',
     watch: 'Ver el showreel con sonido', position: 'Posición del showreel',
