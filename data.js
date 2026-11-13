@@ -9,32 +9,32 @@ window.SITE = {
    "items": [
     {
      "f": "img/editorial/01",
-     "w": 1499,
-     "h": 1000
+     "w": 4029,
+     "h": 2542
     },
     {
      "f": "img/editorial/02",
-     "w": 1500,
+     "w": 1499,
      "h": 1000
     },
     {
      "f": "img/editorial/03",
-     "w": 1460,
+     "w": 1500,
      "h": 1000
     },
     {
      "f": "img/editorial/04",
-     "w": 1499,
+     "w": 1460,
      "h": 1000
     },
     {
      "f": "img/editorial/05",
-     "w": 667,
+     "w": 1499,
      "h": 1000
     },
     {
      "f": "img/editorial/06",
-     "w": 1500,
+     "w": 667,
      "h": 1000
     },
     {
@@ -54,27 +54,27 @@ window.SITE = {
     },
     {
      "f": "img/editorial/10",
-     "w": 668,
+     "w": 1500,
      "h": 1000
     },
     {
      "f": "img/editorial/11",
-     "w": 1500,
+     "w": 668,
      "h": 1000
     },
     {
      "f": "img/editorial/12",
-     "w": 1579,
+     "w": 1500,
      "h": 1000
     },
     {
      "f": "img/editorial/13",
-     "w": 1465,
+     "w": 1579,
      "h": 1000
     },
     {
      "f": "img/editorial/14",
-     "w": 1500,
+     "w": 1465,
      "h": 1000
     },
     {
@@ -94,22 +94,22 @@ window.SITE = {
     },
     {
      "f": "img/editorial/18",
-     "w": 1612,
-     "h": 1000
-    },
-    {
-     "f": "img/editorial/19",
-     "w": 1499,
-     "h": 1000
-    },
-    {
-     "f": "img/editorial/20",
      "w": 1500,
      "h": 1000
     },
     {
-     "f": "img/editorial/21",
+     "f": "img/editorial/19",
+     "w": 1612,
+     "h": 1000
+    },
+    {
+     "f": "img/editorial/20",
      "w": 1499,
+     "h": 1000
+    },
+    {
+     "f": "img/editorial/21",
+     "w": 1500,
      "h": 1000
     },
     {
@@ -124,12 +124,12 @@ window.SITE = {
     },
     {
      "f": "img/editorial/24",
-     "w": 1498,
+     "w": 1499,
      "h": 1000
     },
     {
      "f": "img/editorial/25",
-     "w": 1499,
+     "w": 1498,
      "h": 1000
     },
     {
@@ -139,7 +139,7 @@ window.SITE = {
     },
     {
      "f": "img/editorial/27",
-     "w": 1500,
+     "w": 1499,
      "h": 1000
     },
     {
@@ -149,23 +149,23 @@ window.SITE = {
     },
     {
      "f": "img/editorial/29",
-     "w": 1506,
-     "h": 1000
-    },
-    {
-     "f": "img/editorial/30",
      "w": 1500,
      "h": 1000
     },
     {
+     "f": "img/editorial/30",
+     "w": 1506,
+     "h": 1000
+    },
+    {
      "f": "img/editorial/31",
-     "w": 1497,
+     "w": 1500,
      "h": 1000
     },
     {
      "f": "img/editorial/32",
-     "w": 4029,
-     "h": 2542
+     "w": 1497,
+     "h": 1000
     },
     {
      "f": "img/editorial/33",
