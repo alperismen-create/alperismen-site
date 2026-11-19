@@ -1,0 +1,20 @@
+{
+  "photo": [
+    {"id": "endustriyel", "section": "editorial", "src": ["08_Editorial/01_Endustriyel"], "title": "Endüstriyel", "place": "", "year": ""},
+    {"id": "laboratuvar", "section": "editorial", "src": ["08_Editorial/02_Laboratuvar"], "title": "Laboratuvar", "place": "", "year": ""},
+    {"id": "mimari", "section": "editorial", "src": ["08_Editorial/03_Mimari"], "title": "Mimari", "place": "", "year": ""},
+    {"id": "otel-spa", "section": "editorial", "src": ["08_Editorial/04_Otel-Spa"], "title": "Otel ve Spa", "place": "", "year": ""},
+    {"id": "portre", "section": "editorial", "src": ["08_Editorial/05_Portre"], "title": "Portre", "place": "", "year": ""},
+
+    {"id": "harem-otogari", "section": "documentary", "src": ["02_Harem-Otogari"], "title": "Harem Otogarı", "place": "İstanbul"},
+    {"id": "varanasi", "section": "documentary", "src": ["07_Hindistan/03_Varanasi-nehir", "07_Hindistan/04_Varanasi-sokak"], "title": "Varanasi", "place": "Hindistan"},
+    {"id": "istanbul", "section": "documentary", "src": ["01_Istanbul"], "title": "İstanbul", "place": "İstanbul"},
+    {"id": "jodhpur", "section": "documentary", "src": ["07_Hindistan/02_Jodhpur"], "title": "Jodhpur", "place": "Hindistan"},
+    {"id": "tarlabasi", "section": "documentary", "src": ["03_Tarlabasi"], "title": "Tarlabaşı", "place": "İstanbul", "year": "2008–2009"},
+    {"id": "agra", "section": "documentary", "src": ["07_Hindistan/01_Agra-ve-Jaipur"], "title": "Agra", "place": "Hindistan"},
+    {"id": "tek-kareler", "section": "documentary", "src": ["04_Sulusaray-ve-tekil"], "title": "Tek Kareler", "place": "Türkiye", "year": ""},
+    {"id": "dolmus", "section": "documentary", "src": ["05_Dolmus"], "title": "Dolmuş", "place": "Ankara"},
+    {"id": "dilovasi", "section": "documentary", "src": ["06_Dilovasi"], "title": "Dilovası", "place": "Kocaeli"}
+  ],
+  "film": []
+}

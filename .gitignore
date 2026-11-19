@@ -1,6 +1,6 @@
-# yalnızca site dosyaları yayınlanır
-tools/
-OZET.md
+# yapay zekâ büyütme programı büyük ve kullanılmıyor (AI_MIX = 0); depoda tutulmaz
+tools/realesrgan/
 buyutme-karsilastirma.jpg
 *.tmp.mp4
 *.new.mp4
+__pycache__/

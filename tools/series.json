@@ -1,0 +1,7 @@
+{
+  "photo": [
+    {"id": "editorial", "section": "editorial", "src": ["iş"], "first": ["_ALP0945.JPG", "Hasanoglan0011 kopya.jpg"], "title": "Editorial", "place": "", "year": ""},
+    {"id": "documentary", "section": "documentary", "src": ["belgesel"], "first": ["_ALP7970.jpg"], "title": "Documentary", "place": "", "year": ""}
+  ],
+  "film": []
+}
