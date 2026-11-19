@@ -9,7 +9,8 @@ Seçilen örnek: **giordanobetti.com** (bağımsız görüntü yönetmeni portfo
 
 ## Şu anki durum
 
-- Site yayında: https://alperismen.com (GitHub Pages). Wix yalnızca alan adını ve DNS'i tutuyor.
+- Site yayında: https://alperismen.com (GitHub Pages, önünde Cloudflare).
+- **19 Kasım 2026'dan beri Wix'ten çıkıldı:** DNS ve sertifika Cloudflare'de (ücretsiz plan, ad sunucuları `harlee`/`keaton.ns.cloudflare.com`, kayıtlar proxied, SSL modu Full, Always Use HTTPS açık). www'nin sertifikasını Cloudflare veriyor; GitHub'daki www sertifika takılması artık önemsiz. Alan adı kaydı Wix'ten Cloudflare Registrar'a aktarılıyor ($11.17/yıl; bitiş 22 Tem 2028 → 22 Tem 2029). Wix Premium Mini iptal edildi (otomatik yenileme kapalı, 26 May 2029'a kadar aktif); eski Wix sitesi alan adından ayrıldı.
 - Depo: `alperismen-create/alperismen-site` (açık). Site dosyaları, `tools/` ve bu not aynı depoda; yalnızca `tools/realesrgan` (büyük, kullanılmıyor) depoda yok.
 - Klasör: `Masaüstü\projeler\alperismen-site` — VS Code'da bu klasör açılır.
 - Önizleme: `python tools/serve.py` çalıştırıp `http://localhost:5510` adresini açmak.
@@ -70,7 +71,7 @@ Fotoğrafları değiştirmek için: seçki klasörünü ve `tools/series.json` d
 ## Açık konular
 
 - **Yayın (12 Kasım 2026, yapıldı):** Site GitHub Pages'te, depo `alperismen-create/alperismen-site` (açık). Ana adres https://alperismen.com; sertifika GitHub tarafından otomatik yenilenir. Alan adı Wix'te kalıyor; Wix DNS'te 4 A kaydı (185.199.108–111.153) ve `www` CNAME → `alperismen-create.github.io`. Güncellemek için: değişikliği commit edip `git push`; CSS/JS/data.js değiştiyse `index.html` içindeki `?v=` etiketini de değiştir (yoksa tarayıcı önbelleği eski dosyayla karışır). Eski Wix adresleri (`/videography`, `/photography`, `/bio-contact`) `404.html` ile yeni sayfalara yönlenir. Wix Premium site aboneliği artık gereksiz, iptali konuşulmadı.
-- **www sertifikası (19 Kasım 2026 itibarıyla):** GitHub'da `www.alperismen.com` için sertifika isteği "new" durumunda takılı; alan adı kaldırılıp yeniden eklendi, değişmedi. DNS doğru, GitHub sağlık kontrolü ikisini de uygun görüyor. Sonuç: https://alperismen.com çalışıyor, `https://www...` sertifika hatası veriyor, HTTPS zorunlu yapılamıyor. Çözüm: GitHub desteğine talep (support.github.com, Pages).
+- **www sertifikası:** GitHub tarafında takılı kaldı; Cloudflare önüne alınarak çözüldü (yukarıya bakın).
 - **İspanyolca metinler** Claude'un çevirisi; anadili İspanyolca olan biri kontrol etmedi.
 - **Küçük dosyalar:** İş fotoğraflarının yarısı 1.000–1.500 piksel (`iş\küçük` klasöründen). Portre 800 piksel. Orijinalleri gelirse değiştirilecek.
 - **Bozuk dosyalar:** Arşivde `portfolyo` altında 19 fotoğraf 0 bayt; diskten yeniden kopyalanması gerekiyor.
